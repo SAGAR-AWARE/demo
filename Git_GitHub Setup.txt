@@ -1,0 +1,278 @@
+Step 1. Download git bash on your system
+https://git-scm.com/downloads  -- > 64bit windows.
+
+Step 2. Install it by clicking next to all steps and complete the setup.
+
+Step 3. Create an account on git_hub. --> sign up first if you don't have an account.
+
+Step 4. Create a repository
+
+Step 5. Make a folder on your system with same name of remote repo.
+
+Step 6. Open git bash in local folder
+
+Dtep 7. Run following commands.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git init
+Initialized empty Git repository in C:/Users/gaura/OneDrive/Desktop/MyProject/.git/
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ touch index.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git add -A                                                      ----> To add the files in the folders it will make files on track.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git status                                                      -----> To check the status of the folder.
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.txt
+
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git commit -m"Adding one text file"                          -------> all changes will be commited(final) with -m(message)         
+[master (root-commit) ea5fcd8] Adding one text file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git remote add origin https://github.com/IamaDeveloper77/MyProject.git   ----> Set origin name to remote repository and add it. 
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git remote show origin                                           ------>show the details of remote repo.
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IamaDeveloper77/MyProject.git/'
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git remote                                                    ------> show the origin is set properly or not.
+origin
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git push -u origin master                                     -------> To upload the files on git_hub (-u = upstream i.e  you are one step ahead of local repo.)
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 240 bytes | 120.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/IamaDeveloper77/MyProject/pull/new/master
+remote:
+To https://github.com/IamaDeveloper77/MyProject.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git pull https://github.com/IamaDeveloper77/MyProject.git    ------> To download the files from the git_hub.
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.25 KiB | 32.00 KiB/s, done.
+From https://github.com/IamaDeveloper77/MyProject
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git pull origin master --allow-unrelated-histories         -------> Allow the unrelated histories.
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 663 bytes | 34.00 KiB/s, done.
+From https://github.com/IamaDeveloper77/MyProject
+ * branch            master     -> FETCH_HEAD
+   ea5fcd8..cb2cd2c  master     -> origin/master
+Updating ea5fcd8..cb2cd2c
+Fast-forward
+ index.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Step 8. Create a new branch.
+Run following commands
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git branch                                                  -----> To check the current branch.
+* master
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git branch local                                           ------> To create a local branch.
+                       
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git branch
+  local
+* master
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git checkout local                                          ------> To Switch on local branch. 
+Switched to branch 'local'
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git branch
+* local
+  master
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ touch demo.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git status
+On branch local
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        demo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git add demo.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git status
+On branch local
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   demo.txt
+
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git commit -m(Adding demo file)
+bash: syntax error near unexpected token `('
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git commit -m"Adding demo file"
+[local b424324] Adding demo file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 demo.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git push -u origin local                                     ------> To upload the file on local branch.
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 299 bytes | 299.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'local' on GitHub by visiting:
+remote:      https://github.com/IamaDeveloper77/MyProject/pull/new/local
+remote:
+To https://github.com/IamaDeveloper77/MyProject.git
+ * [new branch]      local -> local
+branch 'local' set up to track 'origin/local'.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git merge local
+Already up to date.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (local)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Step 9. Create a tag.
+Run following commands.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git log                                                        ---> show the history of commits with commit points
+commit cb2cd2cb8caedb952df1cf17c18cec63a8d82e93 (HEAD -> master, origin/master)
+Author: IamaDeveloper77 <153580574+IamaDeveloper77@users.noreply.github.com>
+Date:   Tue Dec 12 11:11:34 2023 +0530
+
+    Update index.txt
+
+commit ea5fcd8b6f947e984b2575d18ce385bfedc5b7b0
+Author: IamaDeveloper <gauravpawar0920@gmail.com>
+Date:   Tue Dec 12 10:21:34 2023 +0530
+
+    Adding one text file
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git tag v1.0                                                  -----> Create a tag.
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git tag show
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git log                                                       ------> it will show new tag is created. i.e. tag: v1.0
+commit cb2cd2cb8caedb952df1cf17c18cec63a8d82e93 (HEAD -> master, tag: v1.0, tag: show, origin/master)
+Author: IamaDeveloper77 <153580574+IamaDeveloper77@users.noreply.github.com>
+Date:   Tue Dec 12 11:11:34 2023 +0530
+
+    Update index.txt
+
+commit ea5fcd8b6f947e984b2575d18ce385bfedc5b7b0
+Author: IamaDeveloper <gauravpawar0920@gmail.com>
+Date:   Tue Dec 12 10:21:34 2023 +0530
+
+    Adding one text file
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ touch second.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git add .
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git commit -m"adding second file"
+[master 9f54e17] adding second file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 second.txt
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git push https://github.com/IamaDeveloper77/MyProject.git
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 286 bytes | 143.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/IamaDeveloper77/MyProject.git
+   cb2cd2c..9f54e17  master -> master
+
+Step 10. Delete tag
+Run following commands
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was cb2cd2c)
+
+gaura@GarrysLaptop MINGW64 ~/OneDrive/Desktop/MyProject (master)
+$ git log
+commit 9f54e17a55cf9045521613d46014d35de30de556 (HEAD -> master)
+Author: IamaDeveloper <gauravpawar0920@gmail.com>
+Date:   Tue Dec 12 11:49:40 2023 +0530
+
+    adding second file
+
+commit cb2cd2cb8caedb952df1cf17c18cec63a8d82e93 (tag: show, origin/master)
+Author: IamaDeveloper77 <153580574+IamaDeveloper77@users.noreply.github.com>
+Date:   Tue Dec 12 11:11:34 2023 +0530
+
+    Update index.txt
+
+commit ea5fcd8b6f947e984b2575d18ce385bfedc5b7b0
+Author: IamaDeveloper <gauravpawar0920@gmail.com>
+Date:   Tue Dec 12 10:21:34 2023 +0530
+
+    Adding one text file
+
+Step 11. To clone a repository.
+
+git clone url(Repository.)
+
+
+
+
+
+
